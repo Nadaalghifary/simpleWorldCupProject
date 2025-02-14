@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match List</title>
+    <style>
+        body {
+            background-image: url('background.png');
+            background-size: cover;
+            font-family: Times , sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-image: url('background.png');
+            background-size: cover;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .matches, .details-container {
+            padding: 20px;
+        }
+        .match {
+            background-color: #ffffff33;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .match h2 {
+            margin: 0;
+            color: #fff;
+        }
+        .match .details {
+            color: #fff;
+        }
+        .button {
+            background-color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            color: #000c66;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #ffffff;
+        }
+        .details {
+            background-color: #ffffff33;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto;
+        }
+        .details .match-info h2 {
+            margin: 0;
+            color: #fff;
+        }
+        .details .match-info {
+            color: #fff;
+            margin: 10px 0;
+        }
+        .info {
+            color: #fff;
+            margin: 20px 0;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link
+     rel="shortcut icon"
+     href="https://img.icons8.com/?size=100&id=59&format=png&color=000000"
+     type="image/x-icon"
+/>
+</head>
+<body>
+    <body>
+        <div id="nav">
+          <img
+         src="https://img.icons8.com/?size=100&id=59&format=png&color=FFFFFF"
+         alt=""
+         />
+         <h4><a href="index.html">HOME</a></h4>
+         <h4><a href="index3.html">Matches Overview</a></h4>
+         <h4><a href="index5.html">Matches & Results </a></h4>
+         <h4><a href="index4.html">Ticket Booking</a></h4>
+         
+        </div>
+    <div class="header">
+        <h1>Upcoming Matches</h1>
+    </div>
+    <div class="matches">
+        <div class="match" onclick="showDetails('england-ecuador')">
+            <div class="info">
+                <h2>England vs Ecuador</h2>
+                <div class="details">Date: 2025-06-01 | Time: 18:00</div>
+            </div>
+            <a href="Details.html" class="button">View Details</a>
+        </div>
+        <div class="match" onclick="showDetails('qatar-iran')">
+            <div class="info">
+                <h2>Qatar vs Iran</h2>
+                <div class="details">Date: 2025-06-02 | Time: 20:00</div>
+            </div>
+            <a href="de1.html" class="button">View Details</a>
+        </div>
+        <div class="match" onclick="showDetails('senegal-netherlands')">
+            <div class="info">
+                <h2>Senegal vs Netherlands</h2>
+                <div class="details">Date: 2025-06-03 | Time: 21:00</div>
+            </div>
+            <a href="de.html" class="button">View Details</a>
+        </div>
+        <div class="match" onclick="showDetails('argentina-denmark')">
+            <div class="info">
+                <h2>Argentina vs Denmark</h2>
+                <div class="details">Date: 2025-06-03 | Time: 21:00</div>
+            </div>
+            <a href="de2.html" class="button">View Details</a>
+        </div>
+        <div class="match" onclick="showDetails('mexico-poland')">
+            <div class="info">
+                <h2>Mexico vs Poland</h2>
+                <div class="details">Date: 2025-06-03 | Time: 21:00</div>
+            </div>
+            <a href="de3.html" class="button">View Details</a>
+        </div>
+    </div>
+    <div class="details-container">
+        <!-- سيتم تحديث هذه الحاوية بواسطة JavaScript -->
+    </div>
+    <script>
+        const matchDetails = {
+            'england-ecuador': {
+                teams: 'England vs Ecuador',
+                date: '2025-06-01',
+                time: '18:00',
+                location: 'Wembley Stadium, London',
+                referee: 'John Doe',
+                tickets: 'https://tickets.example.com'
+            },
+            'qatar-iran': {
+                teams: 'Qatar vs Iran',
+                date: '2025-06-02',
+                time: '20:00',
+                location: 'Al Bayt Stadium, Al Khor',
+                referee: 'Jane Doe',
+                tickets: 'https://tickets.example.com'
+            },
+            'senegal-netherlands': {
+                teams: 'Senegal vs Netherlands',
+                date: '2025-06-03',
+                time: '21:00',
+                location: 'Lusail Iconic Stadium, Lusail',
+                referee: 'Alex Smith',
+                tickets: 'https://tickets.example.com'
+            },
+            'argentina-denmark': {
+                teams: 'Argentina vs Denmark',
+                date: '2025-06-03',
+                time: '21:00',
+                location: 'Education City Stadium, Al Rayyan',
+                referee: 'Chris Johnson',
+                tickets: 'https://tickets.example.com'
+            },
+            'mexico-poland': {
+                teams: 'Mexico vs Poland',
+                date: '2025-06-03',
+                time: '21:00',
+                location: '974 Stadium, Doha',
+                referee: 'Sam Brown',
+                tickets: 'https://tickets.example.com'
+            }
+        };
+
+        function showDetails(matchId) {
+            const details = matchDetails[matchId];
+            const detailsContainer = document.querySelector('.details-container');
+            detailsContainer.innerHTML = `
+                <div class="details">
+                    <div class="match-info">
+                        <h2>${details.teams}</h2>
+                        <div class="info">Date: ${details.date}</div>
+                        <div class="info">Time: ${details.time}</div>
+                        <div class="info">Location: ${details.location}</div>
+                        <div class="info">Referee: ${details.referee}</div>
+                    </div>
+                    <div class="button-container">
+                        <a href="${details.tickets}" class="button">Buy Tickets</a>
+                        <a href="#" class="button" onclick="clearDetails()">Back to Matches</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function clearDetails() {
+            document.querySelector('.details-container').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
+

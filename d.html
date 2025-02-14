@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrolling Animations Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+  }
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .section:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+  .section:nth-child(odd) {
+    background-color: #e0e0e0;
+  }
+  .animate-left {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s, transform 1s;
+  }
+  .animate-right {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 1s;
+  }
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+</head>
+<body>
+<div class="section">
+  <div class="animate-left">
+    <h2>Scroll down to see the animation</h2>
+  </div>
+</div>
+<div class="section">
+  <div class="animate-right">
+    <h2>This section will animate when you scroll</h2>
+  </div>
+</div>
+<script>
+  // Function to check if an element is in the viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Function to handle scroll animations
+  function handleAnimation() {
+    const animateLeftElements = document.querySelectorAll('.animate-left');
+    const animateRightElements = document.querySelectorAll('.animate-right');
+
+    animateLeftElements.forEach(element => {
+      if (isInViewport(element)) {
+        element.classList.add('show');
+      }
+    });
+
+    animateRightElements.forEach(element => {
+      if (isInViewport(element)) {
+        element.classList.add('show');
+      }
+    });
+  }
+
+  // Add event listener for scroll events
+  window.addEventListener('scroll', handleAnimation);
+
+  // Initial check for animations when the page loads
+  handleAnimation();
+</script>
+</body>
+</html>
